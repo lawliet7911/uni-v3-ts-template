@@ -1,0 +1,6 @@
+// todo storage
+
+// sessionStorage
+
+// localStorage
+

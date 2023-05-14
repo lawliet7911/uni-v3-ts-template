@@ -8,12 +8,14 @@
 
 <script setup lang="ts">
 
-import { getMenu } from '@/apis';
-import { ref } from 'vue'
-getMenu().then(res=>{
-  console.log(res);
-})
+import { getMenu } from '@/bll';
+import { cloneDeep } from 'lodash-es';
+import { ref,onMounted } from 'vue'
 const title = ref('Hello')
+onMounted(()=>{
+  getMenu().then(res=>{
+})
+})
 </script>
 
 <style>

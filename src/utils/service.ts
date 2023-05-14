@@ -1,3 +1,4 @@
+import { getBaseUrl } from '@/config'
 import { extend } from './shared'
 import { toast } from './uniTools'
 
@@ -30,7 +31,7 @@ const DEFAULT_OPTIONS: requestOptions = {
   },
 }
 
-const BASEURL = '' // 请求baseUrl
+const BASEURL = getBaseUrl() // 请求baseUrl
 
 let LoadingInstance = null
 
@@ -52,6 +53,7 @@ export const request = async (url: string, options?: requestOptions) => {
 }
 
 type mergeRequestOption = UniApp.RequestOptions & requestOptions
+
 // 请求拦截器 - 添加header等
 const useRequestInterceptor = (url: string, options?: requestOptions): mergeRequestOption => {
   const requestHeader = extend(DEFAULT_OPTIONS.header, options?.header)
@@ -78,6 +80,10 @@ export const post = (url: string, data: any) => {
     method: 'POST',
     data,
   })
+}
+
+export const httpRequest  = () => {
+  
 }
 
 const useLoading = () => {
