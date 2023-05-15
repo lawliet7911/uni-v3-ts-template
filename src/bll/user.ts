@@ -1,6 +1,6 @@
 import { UserAPI } from '@/api'
-import { post } from '@/utils'
+import { httpRequest, post } from '@/utils'
 
 export const addUser = (data: any) => {
-  // return post(UserAPI.user, data)
+  return httpRequest(UserAPI.user, data)
 }

@@ -1,7 +1,9 @@
 <template>
   <view class="content">
     <view class="text-area">
-      <text class="title">{{ title }}</text>
+      <text class="title">{{ title }} 你好啊，怎么没有热更新啊，还是得重启才行啊</text>
+
+      {{ result }}
     </view>
   </view>
 </template>
@@ -10,11 +12,13 @@
 
 import { getMenu } from '@/bll';
 import { cloneDeep } from 'lodash-es';
-import { ref,onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 const title = ref('Hello')
-onMounted(()=>{
-  getMenu().then(res=>{
-})
+const result = ref()
+onMounted(() => {
+  getMenu({}).then(res => {
+      result.value = res
+  })
 })
 </script>
 

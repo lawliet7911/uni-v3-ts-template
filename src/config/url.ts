@@ -1,8 +1,25 @@
-export const getBaseUrl = (): string => {
-  if (process.env.NODE_ENV === 'development') return '' // dev baseUrl
-  else return '' // prod baseUrl
+type BaseUrl = {
+  [key: string]: {
+    dev: string
+    prod: string
+  }
 }
 
-export const getBase2Url = ():string => {
-  return ''
+const baseUrlMap: BaseUrl = {
+  base: {
+    dev: 'https://api.lawliet7911.top',
+    prod: 'https://api.lawliet7911.top',
+  },
+
+  test: {
+    dev: 'https://api.lawliet7911.top/test',
+    prod: 'https://api.lawliet7911.top/test',
+  },
+}
+
+export const getBaseUrl = (key: string = 'base'): string => {
+  const baseUrlObj = baseUrlMap[key]
+  const { dev, prod } = baseUrlObj
+  if (process.env.NODE_ENV === 'development') return dev
+  else return prod
 }
