@@ -2,7 +2,6 @@ import { getBaseUrl } from '@/config'
 import { extend } from './shared'
 import { toast } from './uniTools'
 import { HTTPMethod, HttpStatus } from '@/enums'
-import type { HTTPRequestRoute } from '@/api'
 
 type Method = 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT'
 
@@ -24,8 +23,8 @@ const DEFAULT_OPTIONS: requestOptions = {
   timeout: TIMEOUT,
   loading: true,
   header: {
-    'Content-Type': 'application/json',
-  },
+    'Content-Type': 'application/json'
+  }
 }
 
 let LoadingInstance = null
@@ -78,7 +77,7 @@ export const post = (url: string, data: any, config?: requestOptions) => {
   config = extend(extend(config || {}, { method: HTTPMethod.POST }), { data })
   return request(url, {
     method: HTTPMethod.POST,
-    data,
+    data
   })
 }
 
@@ -98,7 +97,7 @@ export const httpRequest = (route: HTTPRequestRoute, data?: any, config: request
 const useLoading = () => {
   // uni loading 没有返回值 用其他loading UI 可以存一下instance
   LoadingInstance = uni.showLoading({
-    title: '请求中', // loading text
+    title: '请求中' // loading text
   })
 }
 

@@ -17,7 +17,7 @@ const title = ref('Hello')
 const result = ref()
 onMounted(() => {
   getMenu({}).then(res => {
-      result.value = res
+    result.value = res
   })
 })
 </script>

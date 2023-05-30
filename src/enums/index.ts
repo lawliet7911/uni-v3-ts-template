@@ -1,7 +1,7 @@
 export enum HttpStatus {
   NOT_FOUND = 404,
   SUCCESS = 200,
-  ERROR = 500,
+  ERROR = 500
 }
 
 export enum HTTPMethod {
@@ -12,5 +12,5 @@ export enum HTTPMethod {
   PUT = 'PUT',
   DELETE = 'DELETE',
   TRACE = 'TRACE',
-  CONNECT = 'CONNECT',
+  CONNECT = 'CONNECT'
 }
